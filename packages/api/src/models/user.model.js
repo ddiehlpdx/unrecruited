@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 
-module.exports = (sequelize, Sequelize) => {
+export default(sequelize, Sequelize) => {
     const User = sequelize.define('User', {
         id: {
             type: Sequelize.UUID,
