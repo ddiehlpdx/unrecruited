@@ -1,49 +1,52 @@
-export default(sequelize, Sequelize) => {
-    const Review = sequelize.define('Review', {
-        id: {
-            type: Sequelize.UUID,
-            defaultValue: UUIDV4,
-            primaryKey: true,
-            indexes: [
-                {
-                    fields: ['id']
-                }
-            ]
-        },
-        title: {
-            type: Sequelize.STRING(128),
-            allowNull: false,
-            indexes: [
-                {
-                    fields: ['title']
-                }
-            ]
+import {Sequelize, DataTypes } from 'sequelize';
 
-        },
-        body: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        rating: {
-            type: Sequelize.FLOAT,
-            allowNull: false
-        },
-        tags: {
-            type: Sequelize.FLOAT,
-            allowNull: false,
-            
-        },
-        user: {
-            type: Sequelize.UUID,
-            defaultValue: UUIDV4,
-            allowNull: false
-        },
-        company: {
-            type: Sequelize.UUID,
-            defaultValue: UUIDV4,
-            allowNull: false
-        }
-    }); 
-    return Review   
-};
+const sequelize = new Sequelize('sqlite::memory:');
 
+const Review = sequelize.define('Review', {
+    id: {
+        type: DataTypes.UUID,
+        defaultValue: UUIDV4,
+        primaryKey: true,
+        indexes: [
+            {
+                fields: ['id']
+            }
+        ]
+    },
+    title: {
+        type: DataTypes.STRING(128),
+        allowNull: false,
+        indexes: [
+            {
+                fields: ['title']
+            }
+        ]
+    },
+    body: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    rating: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
+    tags: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
+    user: {
+        type: DataTypes.UUID,
+        defaultValue: UUIDV4,
+        allowNull: false
+    },
+    company: {
+        type: DataTypes.UUID,
+        defaultValue: UUIDV4,
+        allowNull: false
+    }
+});
+
+export default Review;
+
+        
+       
