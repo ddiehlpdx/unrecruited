@@ -45,8 +45,9 @@ export default(sequelize, Sequelize) => {
         return bcrypt.compareSync(password, hash);
     }
 
+    return User;
 };
 
-return User;
+
 
 
