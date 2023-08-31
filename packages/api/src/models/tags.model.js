@@ -1,24 +1,27 @@
-export default (sequelize, Sequelize) => {
-    const Tags = sequelize.define('Tags', {
-        id: {
-            type: Sequelize.UUID,
-            defaultValue: UUIDV4,
-            primaryKey: true,
-            allowNull: false
-        },
-        name: {
-            type: Sequelize.STRING,
-            allowNull: false,
-            indexes: [
-                {
-                    unique: true,
-                    fields: ['name']
-                }
-            ]
-        }
-    });
-    return Tags
-};
+import { Sequelize, DataTypes } from 'sequelize';
+
+const sequelize = new Sequelize('sqlite::memory:');
+
+const Tags = sequelize.define('Tags', {
+    id: {
+        type: DataTypes.UUID,
+        defaultValue: UUIDV4,
+        primaryKey: true,
+        allowNull: false
+    },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        indexes: [
+            {
+                unique: true,
+                fields: ['name']
+            }
+        ]
+    }
+});
+
+export default Tags
 
 
 
