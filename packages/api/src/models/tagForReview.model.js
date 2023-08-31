@@ -2,7 +2,7 @@ import { Sequelize, DataTypes } from 'sequelize';
 
 const sequelize = new Sequelize('sqlite::memory:');
 
-const tagForReview = sequelize.define('tagForReview', {
+const TagForReview = sequelize.define('tagForReview', {
     id: {
         type: DataTypes.UUID,
         defaultValue: UUIDV4,
@@ -31,6 +31,6 @@ const tagForReview = sequelize.define('tagForReview', {
     }
 });
 
-export default tagForReview;
+export default TagForReview;
 
 
